@@ -1,3 +1,5 @@
 {
-  "routes": [{ "src": "/:i*", "dest": "/api/:i*" }]
+  "rewrites": [
+    { "source": "/:ir", "destination": "/api/:ir" }
+  ]
 }
