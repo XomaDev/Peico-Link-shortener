@@ -1,0 +1,3 @@
+{
+  "routes": [{ "src": "/:i", "dest": "/api/tag?i=:i" }]
+}
