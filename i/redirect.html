@@ -4,7 +4,7 @@
     <title>Redirecting...</title>
 </head>
 <body onload="redirect()">
-<p>Redirecting in a few moments</p>
+<p id="p">Redirecting in a few moments</p>
 <script>
         async function redirect() {
         var currentUrl = new URL(window.location.href);
@@ -14,11 +14,12 @@
         var url = "https://script.google.com/macros/s/AKfycbyxUhUuSDlhW3j7SBfknwb6L7t_6Z-GhpACJ5yCoG2_nVZ8oXE/exec?tag=" + tag;
             var req = await fetch(url);
             var res = await req.text();
-            if(res != null){
+            if(res != null || res != "FAILED"){
             console.log(res);
             window.location.replace(res);
             } else {
                  console.error("Failed To Find Link")
+           document.getElementById("p").innerHTML = "Failed To Find Link!";
             }
         } else {
  console.error("Failed To Find Link")
