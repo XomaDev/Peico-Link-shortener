@@ -6,5 +6,5 @@ module.exports = (req, res) => {
   var index = httpGet(url) + "";
 
 
-  res.json("a")
+  res.json({ result: index.toString() })
 }
