@@ -8,3 +8,10 @@ module.exports = (req, res) => {
 
   res.json({ result: index.toString() })
 }
+
+function httpGet(target){
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", target, false );
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+}
