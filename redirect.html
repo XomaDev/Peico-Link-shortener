@@ -2,12 +2,12 @@
 <html>
 <head>
     <title>Redirecting...</title>
-        <script>
+    <script>
         async function redirect() {
         var currentUrl = new URL(window.location.href);
         if (currentUrl.searchParams.get("tag") != null) {
         var tag = currentUrl.searchParams.get("tag");
-                        
+
         var url = "https://script.google.com/macros/s/AKfycbyxUhUuSDlhW3j7SBfknwb6L7t_6Z-GhpACJ5yCoG2_nVZ8oXE/exec?tag=" + tag;
             var req = await fetch(url);
             var res = await req.text;
@@ -21,7 +21,8 @@
         }
     </script>
 </head>
-<body onload="redirect()">
-    <p>Redirecting in a few moments</p>
+<body>
+<p>Redirecting in a few moments</p>
 </body>
 </html>
+© 2021 GitHub, Inc.
