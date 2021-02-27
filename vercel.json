@@ -1,5 +1,5 @@
 {
   "redirects": [
-    { "source": "/:ir", "destination": "/redirect.html?t=:ir" }
+    { "source": "/:ir", "destination": "/redirect.html?tag=:ir" }
   ]
 }
