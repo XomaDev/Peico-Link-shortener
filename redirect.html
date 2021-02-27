@@ -13,7 +13,7 @@
         fetch(post).then(function(response) {
         return response.text();
         }).then(function(data) {
-        window.location = data;
+        window.location.replace(data);
         }).catch(function() {console.warn("Failed to request")});}
     </script>
 </body>
