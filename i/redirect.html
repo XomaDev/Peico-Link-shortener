@@ -13,7 +13,7 @@
 
         var url = "https://script.google.com/macros/s/AKfycbyxUhUuSDlhW3j7SBfknwb6L7t_6Z-GhpACJ5yCoG2_nVZ8oXE/exec?tag=" + tag;
             var req = await fetch(url);
-            var res = await req.text;
+            var res = await req.text();
             if(res != null){
             console.log(res);
             window.location.replace(res);
@@ -27,4 +27,3 @@
     </script>
 </body>
 </html>
-© 2021 GitHub, Inc.
