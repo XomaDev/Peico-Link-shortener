@@ -1,5 +1,5 @@
 {
-  "redirects": [
-    { "source": "/:ir", "destination": "/i/redirect.html?tag=:ir" }
+  "rewrites": [
+    { "source": "/:ir", "destination": "/api/:ir" }
   ]
 }
