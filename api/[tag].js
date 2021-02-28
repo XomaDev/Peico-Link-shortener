@@ -8,8 +8,8 @@ const fetch = require('node-fetch');
             var response = await request.text();
             if(response != null && response != "FAILED"){
              res.setHeader('Cache-Control', 's-maxage=3155695200000')
-             res.setHeader("Location", res);
-             res.status(200).send();
+             res.setHeader("Location", response);
+             res.status(308).send();
             } else {
                res.send("Failed To Find Link");
             }
