@@ -1,5 +1,5 @@
 # ShortLink
-A simple, free yet awesome link shortner, powered by Google Apps Script!
+A simple, free yet awesome link shortner!
 
 
 
