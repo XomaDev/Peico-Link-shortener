@@ -5,7 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/XomaDev/ShortLink/main/favicon.png"/>
-<!--    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>-->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
     <style>
@@ -145,18 +149,31 @@
             <textarea id="text" style="overflow:hidden" placeholder="https://community.appinventor.mit.edu"></textarea>
         </div>
         <br>
-        <button class="rk" onclick="generate()">Make it tiny</button>
-<!--        <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_spap2tcl.json"  background="transparent"  speed="1"  style="width: 100%; height: 100px;"  loop autoplay></lottie-player>-->
+        <button class="rk" onclick="generate()" id="generate">Make it tiny</button>
+
+
+        <div class="toast mt-3">
+            <div class="toast-header">
+                Copied 🏀
+            </div>
+            <div class="toast-body">
+                Link copied to clipboard!
+            </div>
+        </div>
+
+    </div>
     </div>
 </div>
 
 <script>
+
      function github() {
        window.open("https://github.com/XomaDev/ShortLink");
      }
 
      async function generate() {
-       var text = document.getElementById("text").value;
+       var textBox = document.getElementById("text");
+       var text = textBox.value;
 
        if(text.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g) !== null && text != "") {
 
@@ -175,6 +192,13 @@
          console.log(data);
          if(data == '200') {
             document.getElementById("text").value = "https://vem.vercel.app/" + tag;
+
+            textBox.select();
+            textBox.setSelectionRange(0, 99999)
+            document.execCommand("copy");
+
+
+            $('.toast').toast('show');
          }
          });
          }).catch(function(error) {
