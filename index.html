@@ -59,7 +59,7 @@
        font-weight: bold;
        color: #111111;
        border-radius: 12px;
-       width : 60%;
+       width : 65%;
      }
 
      .center {
@@ -144,28 +144,25 @@
 
 <body>
 <div class="center">
-    <div class="dta">
+    <div class="dta" id="dta">
         <div class="x">
             <textarea id="text" style="overflow:hidden" placeholder="https://community.appinventor.mit.edu"></textarea>
         </div>
         <br>
-        <button class="rk" onclick="generate()" id="generate">Make it tiny</button>
-
-
-        <div class="toast mt-3">
-            <div class="toast-header">
-                Copied 🏀
-            </div>
-            <div class="toast-body">
-                Link copied to clipboard!
-            </div>
-        </div>
-
+        <button class="rk" onclick="generate()" id="generate">Tiny!</button>
     </div>
+    </div>
+
+<div class="toast mt-3" id="toast">
+    <div class="toast-header">
+        Copied 🏀
+    </div>
+    <div class="toast-body">
+        Link copied to clipboard!
     </div>
 </div>
-
 <script>
+
 
      function github() {
        window.open("https://github.com/XomaDev/ShortLink");
@@ -197,6 +194,10 @@
             textBox.setSelectionRange(0, 99999)
             document.execCommand("copy");
 
+            var toast = document.getElementById("toast");
+            var div = document.getElementById("dta");
+
+            div.appendChild(toast);
 
             $('.toast').toast('show');
          }
