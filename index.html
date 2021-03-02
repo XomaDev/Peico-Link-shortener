@@ -143,6 +143,14 @@
 </header>
 
 <body>
+    <div class="toast mt-3" id="toast">
+    <div class="toast-header">
+        Copied 🏀
+    </div>
+    <div class="toast-body">
+        Link copied to clipboard!
+    </div>
+</div>
 <div class="center">
     <div class="dta" id="dta">
         <div class="x">
@@ -153,14 +161,6 @@
     </div>
     </div>
 
-<div class="toast mt-3" id="toast">
-    <div class="toast-header">
-        Copied 🏀
-    </div>
-    <div class="toast-body">
-        Link copied to clipboard!
-    </div>
-</div>
 <script>
 
 
@@ -182,7 +182,7 @@
          tag += characters.charAt(Math.floor(Math.random() * charactersLength));
          }
 
-         var request = "https://script.google.com/macros/s/AKfycbzM1oZleq9tCEfMO_AtXu69JwkycT41252ihP6uCqQDb0WsYAq3/exec?TAG=" + tag + "&URL=" + text;
+         var request = "https://short-link7-git-security-features-xomadev.vercel.app/api/add?tag=" + tag + "&url=" + text;
 
          fetch(request).then(function(response){
          response.text().then(function(data) {
