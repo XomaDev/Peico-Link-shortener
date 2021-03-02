@@ -8,8 +8,8 @@ const lookup = require('safe-browse-url-lookup')({ apiKey: 'AIzaSyDgjoHEfUjfZeIl
 
         if (tag != null) {
          lookup.checkSingle(murl)
-    .then(isMalicious => {
-          if(isMalicious === "true"){
+    .then(async isMalicious => {
+          if(isMalicious){
             res.send("This URL seems Evil");
           } else {
             var url = "https://script.google.com/macros/s/AKfycbzM1oZleq9tCEfMO_AtXu69JwkycT41252ihP6uCqQDb0WsYAq3/exec?TAG=" + tag + "&URL=" + murl;
@@ -19,14 +19,12 @@ const lookup = require('safe-browse-url-lookup')({ apiKey: 'AIzaSyDgjoHEfUjfZeIl
                res.send("200");
             } else {
                res.send("Failed To Add Link");
-            }
-        }
-          }
-    })
-    .catch(err => {
+            }};
+    }).catch(err => {
                res.send("Failed To Scan Link");
 
-    });
+    })
          
 
 }
+ }
