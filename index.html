@@ -128,7 +128,15 @@
     </style>
 
 </head>
-
+    
+    <div class="toast mt-3" id="toast">
+    <div class="toast-header">
+        Copied ✅
+    </div>
+    <div class="toast-body">
+        Link copied to clipboard!
+    </div>
+</div>
 <header>
     <svg width="100%" height="110" viewBox="0 0 91 32" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g style="mix-blend-mode:color-burn">
@@ -143,18 +151,11 @@
 </header>
 
 <body>
-    <div class="toast mt-3" id="toast">
-    <div class="toast-header">
-        Copied 🏀
-    </div>
-    <div class="toast-body">
-        Link copied to clipboard!
-    </div>
-</div>
+
 <div class="center">
     <div class="dta" id="dta">
         <div class="x">
-            <textarea id="text" style="overflow:hidden" placeholder="https://community.appinventor.mit.edu"></textarea>
+            <textarea id="text" style="overflow:hidden" placeholder="https://example.com"></textarea>
         </div>
         <br>
         <button class="rk" onclick="generate()" id="generate">Tiny!</button>
@@ -187,19 +188,19 @@
          fetch(request).then(function(response){
          response.text().then(function(data) {
          console.log(data);
-         if(data == '200') {
+         if(data === '200') {
             document.getElementById("text").value = "https://vem.vercel.app/" + tag;
 
             textBox.select();
             textBox.setSelectionRange(0, 99999)
             document.execCommand("copy");
 
-            var toast = document.getElementById("toast");
-            var div = document.getElementById("dta");
-
             div.appendChild(toast);
 
             $('.toast').toast('show');
+         } elseif(data === 'This URL seems Evil') {
+          document.getElementById("text").value = "This URL has been detected Evil by our systems, we can't shorten this URL. Powered By Google Safe Browsing";
+
          }
          });
          }).catch(function(error) {
