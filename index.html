@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/XomaDev/ShortLink/main/favicon.png"/>
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -129,14 +130,7 @@
 
 </head>
     
-    <div class="toast mt-3" id="toast">
-    <div class="toast-header">
-        Copied ✅
-    </div>
-    <div class="toast-body">
-        Link copied to clipboard!
-    </div>
-</div>
+
 <header>
     <svg width="100%" height="110" viewBox="0 0 91 32" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g style="mix-blend-mode:color-burn">
@@ -195,16 +189,16 @@
             textBox.setSelectionRange(0, 99999)
             document.execCommand("copy");
 
-            div.appendChild(toast);
+toastr.success('Copied ✅!', 'Link copied to clipboard!');
 
-            $('.toast').toast('show');
          } else if(data === 'This URL seems Evil') {
           document.getElementById("text").value = "This URL has been detected Evil by our systems, we can't shorten this URL. Powered By Google Safe Browsing";
-
+toastr.error('URL Found Evil By Systems', 'Powered By Google Safe Browsing!');
          }
          });
          }).catch(function(error) {
          console.log('Fetch Error:', error);
+             toastr.error('Error!', 'We are not able to connect to our servers, please check your network connection')
          });
        }
     }
