@@ -4,7 +4,7 @@
     <title>SHMO</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/XomaDev/ShortLink/main/favicon.png"/>
+    <link rel="icon" type="image/png" href="favicon.png"/>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -128,7 +128,20 @@
     </style>
 
 </head>
-
+    
+    <div aria-live="polite" aria-atomic="true" style="position: relative; min-height: 200px;" data-delay="3000">
+  <div class="toast" style="position: absolute; top: 0; right: 0;">
+    <div class="toast-header">
+      <strong class="mr-auto">Copied ✅</strong>
+      <small>Just Now</small>
+      <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="toast-body">
+        Link copied to clipboard!
+    </div>
+  </div>
 <header>
     <svg width="100%" height="110" viewBox="0 0 91 32" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g style="mix-blend-mode:color-burn">
@@ -143,31 +156,18 @@
 </header>
 
 <body>
+
 <div class="center">
     <div class="dta" id="dta">
         <div class="x">
-            <textarea id="text" style="overflow:hidden" placeholder="https://community.appinventor.mit.edu"></textarea>
+            <textarea id="text" style="overflow:hidden" placeholder="https://example.com"></textarea>
         </div>
         <br>
-        <button class="rk" onclick="generate()" id="generate">Tiny!</button>
+        <button class="rk" onclick="generate()" id="generate">Tiny it!</button>
     </div>
     </div>
 
-<div class="toast mt-3" id="toast">
-    <div class="toast-header">
-        Copied 🏀
-    </div>
-    <div class="toast-body">
-        Link copied to clipboard!
-    </div>
-</div>
 <script>
-
-
-     function github() {
-       window.open("https://github.com/XomaDev/ShortLink");
-     }
-
      async function generate() {
        var textBox = document.getElementById("text");
        var text = textBox.value;
@@ -182,24 +182,22 @@
          tag += characters.charAt(Math.floor(Math.random() * charactersLength));
          }
 
-         var request = "https://script.google.com/macros/s/AKfycbzM1oZleq9tCEfMO_AtXu69JwkycT41252ihP6uCqQDb0WsYAq3/exec?TAG=" + tag + "&URL=" + text;
+         var request = "https://vem.vercel.app/api/add?tag=" + tag + "&url=" + text;
 
          fetch(request).then(function(response){
          response.text().then(function(data) {
          console.log(data);
-         if(data == '200') {
-            document.getElementById("text").value = "https://vem.vercel.app/" + tag;
+         if(data === '200') {
+            document.getElementById("text").value = "https://peico.xyz/" + tag;
 
             textBox.select();
             textBox.setSelectionRange(0, 99999)
             document.execCommand("copy");
-
-            var toast = document.getElementById("toast");
-            var div = document.getElementById("dta");
-
-            div.appendChild(toast);
-
+          
             $('.toast').toast('show');
+         } else if(data === 'This URL seems Evil') {
+          document.getElementById("text").value = "This URL has been detected Evil by our systems, we can't shorten this URL. Powered By Google Safe Browsing";
+
          }
          });
          }).catch(function(error) {
@@ -211,4 +209,4 @@
 
 </body>
 </html>
-
+ 

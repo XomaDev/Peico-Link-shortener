@@ -8,7 +8,8 @@
   },
   "dependencies": {
     "express": "^4.17.1",
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^2.6.1",
+    "safe-browse-url-lookup": "0.1.1"
   },
   "engines": {
     "node": "12.x"
