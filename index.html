@@ -4,7 +4,7 @@
     <title>SHMO</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/XomaDev/ShortLink/main/favicon.png"/>
+    <link rel="icon" type="image/png" href="favicon.png"/>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -163,17 +163,11 @@
             <textarea id="text" style="overflow:hidden" placeholder="https://example.com"></textarea>
         </div>
         <br>
-        <button class="rk" onclick="generate()" id="generate">Tiny!</button>
+        <button class="rk" onclick="generate()" id="generate">Tiny it!</button>
     </div>
     </div>
 
 <script>
-
-
-     function github() {
-       window.open("https://github.com/XomaDev/ShortLink");
-     }
-
      async function generate() {
        var textBox = document.getElementById("text");
        var text = textBox.value;
@@ -188,13 +182,13 @@
          tag += characters.charAt(Math.floor(Math.random() * charactersLength));
          }
 
-         var request = "https://short-link7-git-security-features-xomadev.vercel.app/api/add?tag=" + tag + "&url=" + text;
+         var request = "https://vem.vercel.app/api/add?tag=" + tag + "&url=" + text;
 
          fetch(request).then(function(response){
          response.text().then(function(data) {
          console.log(data);
          if(data === '200') {
-            document.getElementById("text").value = "https://vem.vercel.app/" + tag;
+            document.getElementById("text").value = "https://peico.xyz/" + tag;
 
             textBox.select();
             textBox.setSelectionRange(0, 99999)
