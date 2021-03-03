@@ -23,7 +23,7 @@ function getExtension(path) {
             var response = await request.text();
             if(response != null && response != "FAILED"){
                var filetype = getExtension(response);
-               if(filetype === "exe" || filetype === "zip" || filetype === "tar" || filetype === "gz" || filetype === "sfx" || filetype === "bat" || filetype === "dll" || filetype === "apk" || filetype === "ipa" || filetype === "vb" || filetype === "" || filetype === "vps" || filetype === "msi"){
+               if(filetype === "exe" || filetype === "zip" || filetype === "tar" || filetype === "gz" || filetype === "sfx" || filetype === "bat" || filetype === "dll" || filetype === "apk" || filetype === "ipa" || filetype === "vb" || filetype === "vps" || filetype === "msi"){
       res.setHeader('Cache-Control', 's-maxage=3155695200000')
       res.setHeader("Dangerous", "true");
       res.status(200).send("This Shortlink Leads To A URL that is programed to download a dangerous file type, it may infect your PC with Malware, Proceed At your own risk <br/> " + response);
