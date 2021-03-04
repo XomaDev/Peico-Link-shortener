@@ -16,7 +16,13 @@ function getExtension(path) {
  module.exports = async (req, res) => {
   
   const tag = req.query.tag;
-
+   const ua = req.headers['user-agent'];
+     
+if(ua.includes("TelegramBot") || ua.includes("WhatsAppBot") || ua.includes("TwitterBot") || ua.includes("WhatsApp")){
+      res.setHeader("Social", "true");
+      res.status(200).send("<meta property="og:title" content="Meta Made On the fly ;)"/><meta property="og:description" content="Meta Made From Telegram, WhatsApp and Twitter"/><meta property="og:image" content="https://vem.vercel.app/favicon.png"/>");
+}
+    
         if (tag != null) {
         var url = "https://script.google.com/macros/s/AKfycbyxUhUuSDlhW3j7SBfknwb6L7t_6Z-GhpACJ5yCoG2_nVZ8oXE/exec?tag=" + tag;
             var request = await fetch(url);
