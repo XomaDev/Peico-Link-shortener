@@ -5,7 +5,7 @@ const lookup = require('safe-browse-url-lookup')({ apiKey: 'AIzaSyDgjoHEfUjfZeIl
  module.exports = async (req, res) => {
   const tag = req.query.tag;
   const murl = req.query.url;
-  res.setHeader('Access-Control-Allow-Origin', 's.peico.xyz')
+  res.setHeader('Access-Control-Allow-Origin', 'https://s.peico.xyz')
   res.setHeader('Access-Control-Allow-Methods', 'GET')
 
         if (tag != null) {
