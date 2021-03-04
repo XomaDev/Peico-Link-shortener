@@ -20,7 +20,7 @@ function getExtension(path) {
      
 if(ua.includes("TelegramBot") || ua.includes("WhatsAppBot") || ua.includes("TwitterBot") || ua.includes("WhatsApp")){
       res.setHeader("Social", "true");
-      res.status(200).send("<meta property="og:title" content="Meta Made On the fly ;)"/><meta property="og:description" content="Meta Made From Telegram, WhatsApp and Twitter"/><meta property="og:image" content="https://vem.vercel.app/favicon.png"/>");
+      res.status(200).send('<meta property="og:title" content="Meta Made On the fly ;)"/><meta property="og:description" content="Meta Made From Telegram, WhatsApp and Twitter"/><meta property="og:image" content="https://vem.vercel.app/favicon.png"/>');
 }
     
         if (tag != null) {
