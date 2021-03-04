@@ -1,5 +1,5 @@
 # ShortLink
-A simple, free yet awesome link shortner, powered by Vercel!
+A simple, free yet awesome link shortner, powered by Vercel & Cloudflare Workers!
 
 
 
