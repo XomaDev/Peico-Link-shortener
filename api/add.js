@@ -16,7 +16,8 @@ const lookup = require('safe-browse-url-lookup')({ apiKey: 'AIzaSyDgjoHEfUjfZeIl
             var url = "https://script.google.com/macros/s/AKfycbxEbbbhJFQlKTDSXsQfELqxuFPFeHTaT4AeEw_ETZDcpfYnTcE/exec?URL=" + murl;
             var request = await fetch(url);
             var response = await request.text();
-            if(response != null && response != "FAILED" ){
+           console.log(response);
+            if(response != "FAILED"){
                res.send(response);
             } else {
                res.send("Failed To Add Link");
