@@ -13,7 +13,7 @@ const lookup = require('safe-browse-url-lookup')({ apiKey: 'AIzaSyDgjoHEfUjfZeIl
           if(isMalicious){
             res.send("This URL seems Evil");
           } else {
-            var url = "https://script.google.com/macros/s/AKfycbzM1oZleq9tCEfMO_AtXu69JwkycT41252ihP6uCqQDb0WsYAq3/exec?URL=" + murl;
+            var url = "https://script.google.com/macros/s/AKfycbxEbbbhJFQlKTDSXsQfELqxuFPFeHTaT4AeEw_ETZDcpfYnTcE/exec?URL=" + murl;
             var request = await fetch(url);
             var response = await request.text();
             if(response != null && response != "FAILED" ){
