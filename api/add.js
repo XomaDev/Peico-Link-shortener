@@ -4,10 +4,11 @@ const lookup = require('safe-browse-url-lookup')({ apiKey: 'AIzaSyDgjoHEfUjfZeIl
 
  module.exports = async (req, res) => {
   const murl = req.query.url;
+  console.log(murl);
   res.setHeader('Access-Control-Allow-Origin', 'https://s.peico.xyz')
   res.setHeader('Access-Control-Allow-Methods', 'GET')
 
-        if (murl != null) {
+        if (murl != null && murl != undefined) {
          lookup.checkSingle(murl)
     .then(async isMalicious => {
           if(isMalicious){
@@ -16,7 +17,6 @@ const lookup = require('safe-browse-url-lookup')({ apiKey: 'AIzaSyDgjoHEfUjfZeIl
             var url = "https://script.google.com/macros/s/AKfycbxEbbbhJFQlKTDSXsQfELqxuFPFeHTaT4AeEw_ETZDcpfYnTcE/exec?URL=" + murl;
             var request = await fetch(url);
             var response = await request.text();
-           console.log(response);
             if(response != "FAILED"){
                res.send(response);
             } else {
@@ -28,5 +28,7 @@ const lookup = require('safe-browse-url-lookup')({ apiKey: 'AIzaSyDgjoHEfUjfZeIl
     })
          
 
+} else { 
+   res.send("Before we fall into the pastly undefined possible error, we would like to tell you <br><h1>THIS IS A API AND NEEDS A VALID QUERRYSTRING, and allows requests from s.peico.xyz</h1>");
 }
  }
