@@ -33,7 +33,7 @@ function getExtension(path) {
              res.status(308).send(); 
   }
             } else {
-               res.send("Failed To Find Link");
-            }
+             res.setHeader("Location", "https://s.peico.xyz/404");
+             res.status(308).send();             }
         }
 }
