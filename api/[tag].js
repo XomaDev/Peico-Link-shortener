@@ -14,14 +14,25 @@ function getExtension(path) {
 
 
  module.exports = async (req, res) => {
-  
   const tag = req.query.tag;
-
+  const ua = req.headers['user-agent'];
+     var bot = false;
+     if(ua.includes("TelegramBot") || ua.includes("WhatsAppBot") || ua.includes("TwitterBot") || ua.includes("WhatsApp")){
+   bot = true;
+     }
         if (tag != null) {
         var url = "https://script.google.com/macros/s/AKfycbyxUhUuSDlhW3j7SBfknwb6L7t_6Z-GhpACJ5yCoG2_nVZ8oXE/exec?tag=" + tag;
             var request = await fetch(url);
             var response = await request.text();
             if(response != null && response != "FAILED"){
+                if(response === "rickroll" && bot === true){
+       res.setHeader("Social", "true");
+      res.status(200).send('<meta property="og:title" content="Peico"/><meta property="og:description" content=" Make On the fly ;)"/><meta property="og:image" content="https://s.peico.xyz/favicon.png"/>');
+                   } else if (response === "rickroll" && bot === false) {
+             res.setHeader('Cache-Control', 's-maxage=3155695200000')
+             res.setHeader("Location", "https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+             res.status(308).send(); 
+                   }
                var filetype = getExtension(response);
                if(filetype === "exe" || filetype === "zip" || filetype === "tar" || filetype === "gz" || filetype === "sfx" || filetype === "bat" || filetype === "dll" || filetype === "apk" || filetype === "ipa" || filetype === "vb" || filetype === "vps" || filetype === "msi"){
       res.setHeader('Cache-Control', 's-maxage=3155695200000')
