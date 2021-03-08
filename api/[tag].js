@@ -25,14 +25,6 @@ function getExtension(path) {
             var request = await fetch(url);
             var response = await request.text();
             if(response != null && response != "FAILED"){
-                if(response === "rickroll" && bot === true){
-       res.setHeader("Social", "true");
-      res.status(200).send('<meta property="og:title" content="Peico"/><meta property="og:description" content=" Make On the fly ;)"/><meta property="og:image" content="https://s.peico.xyz/favicon.png"/>');
-                   } else if (response === "rickroll" && bot === false) {
-             res.setHeader('Cache-Control', 's-maxage=3155695200000')
-             res.setHeader("Location", "https://www.youtube.com/watch?v=dQw4w9WgXcQ");
-             res.status(308).send(); 
-                   }
                var filetype = getExtension(response);
                if(filetype === "exe" || filetype === "zip" || filetype === "tar" || filetype === "gz" || filetype === "sfx" || filetype === "bat" || filetype === "dll" || filetype === "apk" || filetype === "ipa" || filetype === "vb" || filetype === "vps" || filetype === "msi"){
       res.setHeader('Cache-Control', 's-maxage=3155695200000')
