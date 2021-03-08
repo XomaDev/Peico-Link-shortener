@@ -9,6 +9,16 @@ const lookup = require('safe-browse-url-lookup')({ apiKey: 'AIzaSyDgjoHEfUjfZeIl
   res.setHeader('Access-Control-Allow-Methods', 'GET')
 
         if (murl != null && murl != undefined) {
+         if(murl === "https://www.youtube.com/watch?v=dQw4w9WgXcQ" || murl === "https://youtu.be/dQw4w9WgXcQ"){
+            var url = "https://script.google.com/macros/s/AKfycbxEbbbhJFQlKTDSXsQfELqxuFPFeHTaT4AeEw_ETZDcpfYnTcE/exec?URL=rickroll";
+            var request = await fetch(url);
+            var response = await request.text();
+            if(response != "FAILED"){
+               res.send(response);
+            } else {
+               res.send("Failed To Add Link");
+            }
+         }
          lookup.checkSingle(murl)
     .then(async isMalicious => {
           if(isMalicious){
