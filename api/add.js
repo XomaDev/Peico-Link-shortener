@@ -24,14 +24,16 @@ const lookup = require('safe-browse-url-lookup')({ apiKey: 'AIzaSyDgjoHEfUjfZeIl
           if(isMalicious){
             res.send("This URL seems Evil");
           } else {
-            var url = "https://script.google.com/macros/s/AKfycbxEbbbhJFQlKTDSXsQfELqxuFPFeHTaT4AeEw_ETZDcpfYnTcE/exec?URL=" + murl + "?TAG=" + Math.random().toString(36).toUpperCase().substr(3, 5);
+            var tag = Math.random().toString(36).toUpperCase().substr(3, 5);
+            var url = "https://script.google.com/macros/s/AKfycbxEbbbhJFQlKTDSXsQfELqxuFPFeHTaT4AeEw_ETZDcpfYnTcE/exec?URL=" + murl + "?TAG=" + tag;
             var request = await fetch(url);
-            var response = await request.text();
-            if(response != "FAILED"){
-               res.send(response);
-            } else {
-               res.send("Failed To Add Link");
-            }};
+            res.send(request.response())
+//            var response = await request.text();
+//             if(response != "FAILED"){
+//                res.send(response);
+//             } else {
+//                res.send("Failed To Add Link");
+//             }};
     }).catch(err => {
                res.send("Failed To Scan Link");
 
