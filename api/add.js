@@ -24,11 +24,12 @@ const lookup = require('safe-browse-url-lookup')({ apiKey: 'AIzaSyDgjoHEfUjfZeIl
           if(isMalicious){
             res.send("This URL seems Evil");
           } else {
-            var url = "https://script.google.com/macros/s/AKfycbxEbbbhJFQlKTDSXsQfELqxuFPFeHTaT4AeEw_ETZDcpfYnTcE/exec?URL=" + murl;
+            var tag = Math.random().toString(36).toUpperCase().substr(3, 5);  
+            var url = "https://script.google.com/macros/s/AKfycbxEbbbhJFQlKTDSXsQfELqxuFPFeHTaT4AeEw_ETZDcpfYnTcE/exec?URL=" + murl + "&TAG=" + tag;
             var request = await fetch(url);
            var response = await request.text();
-            if(response != "FAILED"){
-               res.send(response);
+            if(response == "Done"){
+               res.send(tag);
             } else {
                res.send("Failed To Add Link");
             }};
