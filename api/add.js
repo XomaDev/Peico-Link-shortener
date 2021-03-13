@@ -5,7 +5,7 @@ const lookup = require('safe-browse-url-lookup')({ apiKey: 'AIzaSyDgjoHEfUjfZeIl
  module.exports = async (req, res) => {
   const murl = req.query.url;
   console.log(murl);
-  res.setHeader('Access-Control-Allow-Origin', 'https://s.peico.xyz')
+//   res.setHeader('Access-Control-Allow-Origin', 'https://s.peico.xyz')
   res.setHeader('Access-Control-Allow-Methods', 'GET')
         if (murl != null && murl != undefined) {
          lookup.checkSingle(murl).then(async isMalicious => {
