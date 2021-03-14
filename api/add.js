@@ -10,8 +10,7 @@ const lookup = require('safe-browse-url-lookup')({ apiKey: 'AIzaSyDgjoHEfUjfZeIl
   if (murl != null && murl != undefined) {
          if(murl.includes("peico.xyz")){
                          res.send("You can't shorten a already shortened URL");
-         }}
-        if (murl != null && murl != undefined) {
+         } else {
          lookup.checkSingle(murl).then(async isMalicious => {
           if(isMalicious){
             res.send("This URL seems Evil");
