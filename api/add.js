@@ -29,6 +29,6 @@ const lookup = require('safe-browse-url-lookup')({ apiKey: 'AIzaSyDgjoHEfUjfZeIl
             res.send("Opps, something went wrong!");
     })
 } else { 
-   res.send("Before we fall into the pastly undefined possible error, we would like to tell you <br><h1>THIS IS A API AND NEEDS A VALID QUERRYSTRING, and allows requests from s.peico.xyz</h1>");
+   res.send("<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>");
   }
  }
