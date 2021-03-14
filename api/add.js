@@ -12,9 +12,6 @@ const lookup = require('safe-browse-url-lookup')({ apiKey: 'AIzaSyDgjoHEfUjfZeIl
                          res.send("You can't shorten a already shortened URL");
          }}
         if (murl != null && murl != undefined) {
-         if(murl.includes("peico.xyz")){
-                         res.send("You can't shorten a already shortened URL");
-         }
          lookup.checkSingle(murl).then(async isMalicious => {
           if(isMalicious){
             res.send("This URL seems Evil");
@@ -34,5 +31,5 @@ const lookup = require('safe-browse-url-lookup')({ apiKey: 'AIzaSyDgjoHEfUjfZeIl
     })
 } else { 
    res.send("<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>");
-  }}
+  }
  }
