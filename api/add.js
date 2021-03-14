@@ -4,12 +4,17 @@ const lookup = require('safe-browse-url-lookup')({ apiKey: 'AIzaSyDgjoHEfUjfZeIl
 
  module.exports = async (req, res) => {
   const murl = req.query.url;
+
   res.setHeader('Access-Control-Allow-Origin', 'https://s.peico.xyz')
   res.setHeader('Access-Control-Allow-Methods', 'GET')
+  if (murl != null && murl != undefined) {
+         if(murl.includes("peico.xyz")){
+                         res.send("You can't shorten a already shortened URL");
+         }}
         if (murl != null && murl != undefined) {
          if(murl.includes("peico.xyz")){
                          res.send("You can't shorten a already shortened URL");
-         } else {
+         }
          lookup.checkSingle(murl).then(async isMalicious => {
           if(isMalicious){
             res.send("This URL seems Evil");
